@@ -4,6 +4,7 @@ class BestMoviesEver::CLI
   def call 
     list_movies
     menu
+    goodbye
   end
 
   def list_movies
@@ -15,7 +16,7 @@ class BestMoviesEver::CLI
   end
 
 #allow the user to choose all movies, movies by rating, movies by genre
-def menu
+  def menu
     input = nil 
     while input != 'exit'
     puts "Please select a number of the movies that you would like to see;"
@@ -53,6 +54,7 @@ def menu
             else puts "Invalid Entry"
               menu
             end
+            
         when '3'
           puts "Please select a genre"
           puts "Action & Adventure"
@@ -76,8 +78,12 @@ def menu
                puts "All of the Science Fiction movies"
              else
                puts "Invalid Entry"
+             end
           menu
         end
-  end
-
+    end
+    
+    def goodbye
+      puts "Thank you for visiting.  Check back with us when it is time to watch another movie!  Have a great day and we look forward to seeing you again!!!"
+    end 
 end
