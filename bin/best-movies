@@ -1,6 +1,4 @@
 #!/usr/bin/env ruby
-
-
-require "best_movies_ever"
+require_relative "../lib/best_movies_ever"
 
 BestMoviesEver::CLI.new.call

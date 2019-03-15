@@ -87,3 +87,4 @@ class BestMoviesEver::CLI
       puts "Thank you for visiting.  Check back with us when it is time to watch another movie!  Have a great day and we look forward to seeing you again!!!"
     end 
 end
+end
