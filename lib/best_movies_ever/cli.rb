@@ -8,11 +8,8 @@ class BestMoviesEver::CLI
 
 
   def list_movies
-   puts "Best Movies of All Time:"
-   puts <<-DOC #This will need to scrape all of the top 100 movies from RT.
-    1. Black Panther: Rated:PG, Genre: Action & Adventure, Drama, Science Fiction & Fantasy
-    2. Lady Bird:  Rated:R, Genre:Comedy, Drama
-    DOC
+    @movie = BestMoviesEver::Movie.list
+  
   end
 
 
