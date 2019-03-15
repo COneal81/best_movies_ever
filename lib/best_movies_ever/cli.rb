@@ -2,10 +2,10 @@
 class BestMoviesEver::CLI 
   
   def call 
-    list_movies
     menu
     goodbye
   end
+
 
   def list_movies
    puts "Best Movies of All Time:"
@@ -15,23 +15,8 @@ class BestMoviesEver::CLI
     DOC
   end
 
-#allow the user to choose all movies, movies by rating, movies by genre
-  def menu
-    input = nil 
-    while input != 'exit'
-    puts "Please select a number of the movies that you would like to see;"
-    puts <<-DOC
-      1. View all top 100 movies.
-      2. View top movies by rating.
-      3. View top movies by genre.
-      DOC
-    
-    input = gets.strip
-    
-    case input 
-      when '1'
-        list_movies
-      when '2'
+
+  def rating
         puts "Please select a rating"
         puts "G"
         puts "PG"
@@ -52,16 +37,17 @@ class BestMoviesEver::CLI
             when 'R'
               puts "Lists all of the R rated top 100 movies"
             else puts "Invalid Entry"
-              menu
-            end
-            
-        when '3'
-          puts "Please select a genre"
-          puts "Action & Adventure"
-          puts "Comedy"
-          puts "Drama"
-          puts "Fantasy"
-          puts "Science Fiction"
+          end
+        end
+        
+        
+      def genre
+        puts "Please select a genre"
+        puts "Action & Adventure"
+        puts "Comedy"
+        puts "Drama"
+        puts "Fantasy"
+        puts "Science Fiction"
           
           choice = gets.strip
           
@@ -81,10 +67,32 @@ class BestMoviesEver::CLI
              end
           menu
         end
+        
+#allow the user to choose all movies, movies by rating, movies by genre
+  def menu
+    input = nil 
+    while input != 'exit'
+    puts "Welcome to Movie Studio!  Please select a number of the movies that you would like to see;"
+    puts <<-DOC
+      1. View all top 100 movies.
+      2. View top movies by rating.
+      3. View top movies by genre.
+      DOC
+    
+    input = gets.strip
+    
+    case input 
+      when '1'
+        list_movies
+      when '2' #Make a seperate method
+        rating
+      when '3'
+        genre
     end
     
     def goodbye
       puts "Thank you for visiting.  Check back with us when it is time to watch another movie!  Have a great day and we look forward to seeing you again!!!"
     end 
+end
 end
 end
