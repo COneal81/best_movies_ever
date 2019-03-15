@@ -9,7 +9,9 @@ class BestMoviesEver::CLI
 
   def list_movies
     @movie = BestMoviesEver::Movie.list
-  
+    @movie.each.with_index(1) do |movie, i|
+      puts "#{i}. #{movie.name}: Rating #{movie.rating}, Genre: #{movie.genre}, Description: #{movie.description}"
+    end
   end
 
 
@@ -81,6 +83,13 @@ class BestMoviesEver::CLI
     case input 
       when '1'
         list_movies
+          puts "Type a number for the movie you would like to view."
+          input = gets.chomp.downcase
+          
+          if input.to_i > 0 
+            puts @movie[input.to_i-1]
+          end
+          
       when '2' #Make a seperate method
         rating
       when '3'
