@@ -1,100 +1,40 @@
-#The CLI is the controller for the user and the users interactions.  It should take in the users input.
+ #The CLI is the controller for the user and the users interactions.  It should take in the users input.
 class BestMoviesEver::CLI 
   
   def call 
+    list_movies
     menu
     goodbye
   end
 
 
   def list_movies
+    puts "Welcome to Movie Studio, home to the top rated movies!!"
     @movie = BestMoviesEver::Movie.list
     @movie.each.with_index(1) do |movie, i|
       puts "#{i}. #{movie.name}: Rating #{movie.rating}, Genre: #{movie.genre}, Description: #{movie.description}"
     end
   end
-
-
-  def rating
-        puts "Please select a rating"
-        puts "G"
-        puts "PG"
-        puts "PG-13"
-        puts "NC-17"
-        puts "R"
         
-        selection = gets.strip
-          case selection
-            when 'G'
-              puts "Lists all of the G rated top 100 movies"
-            when 'PG'
-              puts "Lists all of the PG rated top 100 movies"
-            when 'PG-13'
-              puts "Lists all of the PG-13 rated top 100 movies"
-            when 'NC-17'
-              puts "Lists all of the NC-17 rated top 100 movies"
-            when 'R'
-              puts "Lists all of the R rated top 100 movies"
-            else puts "Invalid Entry"
-          end
-        end
-        
-        
-      def genre
-        puts "Please select a genre"
-        puts "Action & Adventure"
-        puts "Comedy"
-        puts "Drama"
-        puts "Fantasy"
-        puts "Science Fiction"
-          
-          choice = gets.strip
-          
-            case choice
-             when "Action & Adventure"
-               puts "All of the action and adventure movies"
-             when "Comedy"
-               puts "All of the Comedy movies"
-             when "Drama"
-               puts "All of the Drama movies"
-             when "Fantasy"
-               puts "All of the Fantasy movies"
-             when "Science Fiction"
-               puts "All of the Science Fiction movies"
-             else
-               puts "Invalid Entry"
-             end
-          menu
-        end
-        
-#allow the user to choose all movies, movies by rating, movies by genre
+#allow the user to choose a section of movies, all movies, or end
   def menu
     input = nil 
     while input != 'exit'
-    puts "Welcome to Movie Studio!  Please select a number of the movies that you would like to see;"
-    puts <<-DOC
-      1. View all top 100 movies.
-      2. View top movies by rating.
-      3. View top movies by genre.
-      DOC
+      puts "Enter a number for the movie you would like to see more information on;"
+  
     
-    input = gets.strip
-    
+    input = gets.strip.to_i
+        
     case input 
       when '1'
+          puts "Information on 1st movie."
+      when "2"
+          puts "Information on the 2nd movie"
+      when "list"
         list_movies
-          puts "Type a number for the movie you would like to view."
-          input = gets.chomp.downcase
-          
-          if input.to_i > 0 
-            puts @movie[input.to_i-1]
-          end
-          
-      when '2' #Make a seperate method
-        rating
-      when '3'
-        genre
-    end
+      else
+        puts "Invalid Entry."
+      end
     
     def goodbye
       puts "Thank you for visiting.  Check back with us when it is time to watch another movie!  Have a great day and we look forward to seeing you again!!!"
@@ -102,3 +42,4 @@ class BestMoviesEver::CLI
 end
 end
 end
+
