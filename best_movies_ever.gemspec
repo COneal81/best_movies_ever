@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Top Rated Movies of All Times}
   spec.description   = %q{Provides details of the top rated movies from Rotten Tomatoes}
-  spec.homepage      = "github.com/COneal81/best_movies_ever"
+  spec.homepage      = "https://github.com/COneal81/best_movies_ever"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
