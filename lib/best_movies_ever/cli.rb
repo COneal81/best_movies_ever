@@ -2,6 +2,7 @@
 class BestMoviesEver::CLI 
   
   def call 
+    puts "Welcome to Movie Studio, home to the top rated movies!!"
     list_movies
     menu
     goodbye
@@ -9,7 +10,7 @@ class BestMoviesEver::CLI
 
 
   def list_movies
-    puts "Welcome to Movie Studio, home to the top rated movies!!"
+    
     @movie = BestMoviesEver::Movie.list
     @movie.each.with_index(1) do |movie, i|
       puts "#{i}. #{movie.name}: Rating #{movie.rating}, Genre: #{movie.genre}, Description: #{movie.description}"
@@ -21,9 +22,7 @@ class BestMoviesEver::CLI
     input = nil 
     while input != 'exit'
       puts "Enter a number for the movie you would like to see more information on;"
-  
-    
-    input = gets.strip.to_i
+    input = gets.strip
         
     case input 
       when '1'
