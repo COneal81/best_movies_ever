@@ -1,4 +1,4 @@
- #The CLI is the controller for the user and the users interactions.  It should take in the users input.
+#The CLI is the controller for the user and the users interactions.  It should take in the users input.
 class BestMoviesEver::CLI 
   
   def call 
@@ -13,7 +13,7 @@ class BestMoviesEver::CLI
     
     @movie = BestMoviesEver::Movie.list
     @movie.each.with_index(1) do |movie, i|
-      puts "#{i}. #{movie.name}: Rating #{movie.rating}, Genre: #{movie.genre}, Description: #{movie.description}"
+      puts "#{i}. #{movie.name} ~ #{movie.genre}, Rated #{movie.rating}, Description: #{movie.description}"
     end
   end
         
@@ -22,18 +22,15 @@ class BestMoviesEver::CLI
     input = nil 
     while input != 'exit'
       puts "Enter a number for the movie you would like to see more information on;"
-    input = gets.strip
+    input = gets.strip.downcase
         
-    case input 
-      when '1'
-          puts "Information on 1st movie."
-      when "2"
-          puts "Information on the 2nd movie"
-      when "list"
+    if input.to_i > 0
+          puts @movie[input.to_i-1]
+      elsif input == "list"
         list_movies
       else
         puts "Invalid Entry."
-      end
+    end
     
     def goodbye
       puts "Thank you for visiting.  Check back with us when it is time to watch another movie!  Have a great day and we look forward to seeing you again!!!"
