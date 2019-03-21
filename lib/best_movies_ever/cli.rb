@@ -13,7 +13,7 @@ class BestMoviesEver::CLI
     
     @movie = BestMoviesEver::Movie.list
     @movie.each.with_index(1) do |movie, i|
-      puts "#{i}. #{movie.name} ~ #{movie.genre}, Rated #{movie.rating}, Description: #{movie.description}"
+      puts "#{i}. #{movie.name} ~ #{movie.genre}"
     end
   end
         
@@ -25,7 +25,11 @@ class BestMoviesEver::CLI
     input = gets.strip.downcase
         
     if input.to_i > 0
-          puts @movie[input.to_i-1]
+          the_movie = @movie[input.to_i-1]
+           puts "#{the_movie.name}"
+           puts "      Genre: #{the_movie.genre}"
+           puts "      Rated: #{the_movie.rating}"
+           puts "      Description: #{the_movie.description}"
       elsif input == "list"
         list_movies
       else
