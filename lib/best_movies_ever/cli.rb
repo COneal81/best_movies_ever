@@ -13,7 +13,7 @@ class BestMoviesEver::CLI
     
     @movie = BestMoviesEver::Movie.list
     @movie.each.with_index(1) do |movie, i|
-      #puts "#{i}. #{movie.name} ~ #{movie.genre}"
+      puts "#{i}. #{@movie}"
     end
   end
         
@@ -27,19 +27,20 @@ class BestMoviesEver::CLI
     if input.to_i > 0
           the_movie = @movie[input.to_i-1]
            puts "#{the_movie.name}"
-           puts "      Genre: #{the_movie.genre}"
-           puts "      Rated: #{the_movie.rating}"
-           puts "      Description: #{the_movie.description}"
+           #puts "      Genre: #{the_movie.genre}"
+           #puts "      Description: #{the_movie.description}"
       elsif input == "list"
         list_movies
       else
-        puts "Invalid Entry."
+        puts "Invalid Entry. Enter a number  to see more information on a particular movie, list to see all movies, or exit to leave."
+      end
     end
+  end
+end
     
     def goodbye
-      puts "Thank you for visiting.  Check back with us when it is time to watch another movie!  Have a great day and we look forward to seeing you again!!!"
+      puts "Thank you for visiting.  Check back with us when it is time to watch another movie!"
     end 
-end
-end
-end
+
+
 
