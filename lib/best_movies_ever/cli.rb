@@ -12,8 +12,9 @@ class BestMoviesEver::CLI
   def list_movies
     
     @movie = BestMoviesEver::Movie.list
-    @movie.each.with_index(1) do |movie, i|
-      puts "#{i}. #{@movie}"
+    @movie.each.with_index(1) do |movie, index|
+      puts ""
+      puts "#{index}. #{movie.name}"
     end
   end
         

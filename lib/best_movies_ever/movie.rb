@@ -18,9 +18,10 @@ class BestMoviesEver::Movie
   
     def self.scrape_rt
       doc = Nokogiri::HTML(open("https://www.rottentomatoes.com/top/bestofrt/"))
-      #name = doc.search('#main_containe"r .unstyled.articleLink').text
-      name = doc.search('table.table').text
-    
+      movie = self.new 
+      movie.name = doc.search('#main_container .unstyled.articleLink').text.strip
+      movie
+      
     end
     
 
