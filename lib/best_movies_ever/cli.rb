@@ -13,7 +13,7 @@ class BestMoviesEver::CLI
     
     @movie = BestMoviesEver::Movie.list
     @movie.each.with_index(1) do |movie, i|
-      puts "#{i}. #{movie.name} ~ #{movie.genre}"
+      #puts "#{i}. #{movie.name} ~ #{movie.genre}"
     end
   end
         
