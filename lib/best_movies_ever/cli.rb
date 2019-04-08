@@ -29,7 +29,7 @@ class BestMoviesEver::CLI
           the_movie = @movie[input.to_i-1]
            puts "#{the_movie.name}"
            #puts "      Genre: #{the_movie.genre}"
-           #puts "      Description: #{the_movie.description}"
+           puts "      Description: #{the_movie.description}"
       elsif input == "list"
         list_movies
       else
