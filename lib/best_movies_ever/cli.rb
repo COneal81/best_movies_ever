@@ -3,21 +3,39 @@ class BestMoviesEver::CLI
   
   def call 
     puts "Welcome to Movie Studio, home to the top rated movies!!"
-    list_movies
+    start
     menu
     goodbye
   end
 
-
-  def list_movies
+  def start 
+    puts "Would you like to see the top 100 movies of all times? Enter yes or no."
     
+    choice = gets.strip.downcase
+    if choice == "yes" || "y"
+      list_movies
+    elsif choice == "no" || "n"
+      goodbye
+    else 
+      puts "Invalid entry.  Please enter yes if you would like to see the top 100 movies or no to exit."
+    end
+  end
+  
+  def goodbye
+      puts "Thank you for visiting.  Check back with us when it is time to watch another movie!"
+    end   
+  
+  def list_movies
     @movie = BestMoviesEver::Movie.list
     @movie.each.with_index(1) do |movie, index|
       puts ""
       puts "#{index}. #{movie.name}"
     end
   end
-        
+      
+      
+    
+    
 #allow the user to choose a section of movies, all movies, or end
   def menu
     input = nil 
@@ -39,9 +57,7 @@ class BestMoviesEver::CLI
   end
 end
     
-    def goodbye
-      puts "Thank you for visiting.  Check back with us when it is time to watch another movie!"
-    end 
+    
 
 
 
