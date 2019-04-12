@@ -1,5 +1,5 @@
 class BestMoviesEver::CLI 
-  attr_accessor :sorted_movies
+  # attr_accessor :sorted_movies
   
   def call 
     puts "Welcome to Best Movies Ever CLI, home to the top rated movies!!"
@@ -12,9 +12,9 @@ class BestMoviesEver::CLI
 
   def list_movies
     # @movie = BestMoviesEver::Scraper.scrape_rt
-    @sorted_movies.each.with_index(1) do |movie, index|
+    BestMoviesEver::Movie.all[1...101].each.with_index(1) do |movie, index|
     puts ""
-    puts "#{index}. #{movie.name} ~ #{movie.url}"
+    puts "#{index}. #{movie.name} ~ "#{movie.url}
     end
   end
         
