@@ -5,22 +5,22 @@ class BestMoviesEver::Movie
   
   @@all = []
 
-  def initialize(name )#url
+  def initialize(name)#url
     @name = name 
     # @url = url
     @@all << self #saves/remembers the object
   end
   
-    # def self.list 
-    #   puts "Best Movies of All Time:"
-    #   BestMoviesEver::Scraper.scrape_rt
-    #   end
+  #   def self.list 
+  #     puts "Best Movies of All Time:"
+  #     scrape_movies
+  #     end
   
       
-  # def scrape_movies
+  # def self.scrape_movies
   #   all_movies = []
     
-  #   all_movies << scrape_rt
+  #   all_movies << BestMoviesEver::Scraper.scrape_rt
   # end
   
   def self.all 

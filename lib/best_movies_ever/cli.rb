@@ -1,9 +1,8 @@
 class BestMoviesEver::CLI 
-  # attr_accessor :sorted_movies
+  
   
   def call 
     puts "Welcome to Best Movies Ever CLI, home to the top rated movies!!"
-    BestMoviesEver::Scraper.scrape_rt
     list_movies
     menu
     goodbye
@@ -11,10 +10,10 @@ class BestMoviesEver::CLI
 
 
   def list_movies
-    # @movie = BestMoviesEver::Scraper.scrape_rt
-    BestMoviesEver::Movie.all[1...101].each.with_index(1) do |movie, index|
+    @movies = BestMoviesEver::Scraper.scrape_rt
+    @movies[0...100].each.with_index(1) do |movie, index|
     puts ""
-    puts "#{index}. #{movie.name} ~ "#{movie.url}
+    puts "#{index}. #{movie} ~ "#{movie.url}
     end
   end
         
@@ -26,10 +25,10 @@ class BestMoviesEver::CLI
     input = gets.strip.downcase
         
     if input.to_i > 0
-          the_movie = @sorted_movies[input.to_i-1]
+          the_movie = @movies[input.to_i-1]
            puts "#{the_movie.name}"
-           #puts "      Genre: #{the_movie.genre}"
-          # puts "      Description: #{the_movie.description}"
+           puts "      Genre: "#{the_movie.genre}
+           puts "      Description: "#{the_movie.description}
       elsif input == "list"
         list_movies
       else
