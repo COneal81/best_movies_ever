@@ -1,28 +1,31 @@
 class BestMoviesEver::Movie
 
-  attr_accessor :name, :url 
+  attr_accessor :name  
+  #:url
   
   @@all = []
 
-  def initialize(name, url)
+  def initialize(name )#url
     @name = name 
-    @url = url
+    # @url = url
     @@all << self #saves/remembers the object
   end
   
-    def self.list 
-      puts "Best Movies of All Time:"
-       self.scrape_movies
-      end
+    # def self.list 
+    #   puts "Best Movies of All Time:"
+    #   BestMoviesEver::Scraper.scrape_rt
+    #   end
   
       
-   def self.scrape_movies
-    all_movies = []
+  # def scrape_movies
+  #   all_movies = []
     
-    all_movies << self.scrape_rt
-   end
+  #   all_movies << scrape_rt
+  # end
   
-   
+  def self.all 
+    @@all 
+  end
    
     
 

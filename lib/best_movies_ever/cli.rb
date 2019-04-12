@@ -1,41 +1,23 @@
-#The CLI is the controller for the user and the users interactions.  It should take in the users input.
 class BestMoviesEver::CLI 
+  attr_accessor :sorted_movies
   
   def call 
-    puts "Welcome to Movie Studio, home to the top rated movies!!"
-    start
+    puts "Welcome to Best Movies Ever CLI, home to the top rated movies!!"
+    BestMoviesEver::Scraper.scrape_rt
+    list_movies
     menu
     goodbye
   end
 
-  def start 
-    puts "Would you like to see the top 100 movies of all times? Enter yes or no."
-    
-    choice = gets.strip.downcase
-    if choice == "yes" || "y"
-      list_movies
-    elsif choice == "no" || "n"
-      goodbye
-    else 
-      puts "Invalid entry.  Please enter yes if you would like to see the top 100 movies or no to exit."
-    end
-  end
-  
-  def goodbye
-      puts "Thank you for visiting.  Check back with us when it is time to watch another movie!"
-    end   
-  
+
   def list_movies
-    @movie = BestMoviesEver::Movie.list
-    @movie.each.with_index(1) do |movie, index|
-      puts ""
-      puts "#{index}. #{movie.name}"
+    # @movie = BestMoviesEver::Scraper.scrape_rt
+    @sorted_movies.each.with_index(1) do |movie, index|
+    puts ""
+    puts "#{index}. #{movie.name} ~ #{movie.url}"
     end
   end
-      
-      
-    
-    
+        
 #allow the user to choose a section of movies, all movies, or end
   def menu
     input = nil 
@@ -44,10 +26,10 @@ class BestMoviesEver::CLI
     input = gets.strip.downcase
         
     if input.to_i > 0
-          the_movie = @movie[input.to_i-1]
+          the_movie = @sorted_movies[input.to_i-1]
            puts "#{the_movie.name}"
            #puts "      Genre: #{the_movie.genre}"
-           puts "      Description: #{the_movie.description}"
+          # puts "      Description: #{the_movie.description}"
       elsif input == "list"
         list_movies
       else
@@ -57,7 +39,13 @@ class BestMoviesEver::CLI
   end
 end
     
-    
+    def goodbye
+      puts "Thank you for visiting.  Check back with us when it is time to watch another movie!"
+    end 
+
+
+
+
 
 
 
