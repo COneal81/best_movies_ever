@@ -1,6 +1,6 @@
 class BestMoviesEver::Movie
 
-  attr_accessor :name, :url
+  attr_accessor :name, :url, :description, :genre, :rating
   
   @@all = []
 

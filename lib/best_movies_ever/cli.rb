@@ -31,12 +31,13 @@ class BestMoviesEver::CLI
         
     if input.to_i > 0
           the_movie = @movie_list[input.to_i-1]
+          BestMoviesEver::Scraper.scrape_details(the_movie)
            puts ""
            puts "*********More information On ***********"
            puts "      Title: #{the_movie.name}"
            puts "      URL:   #{the_movie.url}"
            puts "      Genre: "#{the_movie.genre}
-           puts "      Description: "#{the_movie.description}
+           puts "      Description: #{the_movie.description}"
            puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
       elsif input == "list"
         list_movies
