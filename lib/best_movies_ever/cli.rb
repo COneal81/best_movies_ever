@@ -18,7 +18,7 @@ class BestMoviesEver::CLI
   def list_movies
     @movie_list.each.with_index(1) do |movie, index|
     puts ""
-    puts "#{index}. #{movie.name} ~ "#{movie.url}
+    puts "#{index}. #{movie.name} ~ #{movie.url}"
     end
   end
         
@@ -26,7 +26,7 @@ class BestMoviesEver::CLI
   def menu
     input = nil 
     while input != 'exit'
-      puts "Enter a number for the movie you would like to see more information on;"
+      puts "Enter a number for the movie you would like to see more information on or type list to see all of the top 100 movies."
     input = gets.strip.downcase
         
     if input.to_i > 0
@@ -34,6 +34,7 @@ class BestMoviesEver::CLI
            puts ""
            puts "*********More information On ***********"
            puts "      Title: #{the_movie.name}"
+           puts "      URL:   #{the_movie.url}"
            puts "      Genre: "#{the_movie.genre}
            puts "      Description: "#{the_movie.description}
            puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
