@@ -1,6 +1,5 @@
 class BestMoviesEver::CLI 
   
-  
   def call 
     puts "Welcome to Best Movies Ever CLI, home to the top rated movies!!"
     list_movies
@@ -8,10 +7,9 @@ class BestMoviesEver::CLI
     goodbye
   end
 
-
   def list_movies
     @movies = BestMoviesEver::Scraper.scrape_rt
-    @movies[0...100].each.with_index(1) do |movie, index|
+    @movies[0...2].each.with_index(1) do |movie, index|
     puts ""
     puts "#{index}. #{movie} ~ "#{movie.url}
     end
@@ -26,9 +24,12 @@ class BestMoviesEver::CLI
         
     if input.to_i > 0
           the_movie = @movies[input.to_i-1]
-           puts "#{the_movie.name}"
+           puts ""
+           puts "*********More information On ***********"
+           puts "      Title: #{the_movie.name}"
            puts "      Genre: "#{the_movie.genre}
            puts "      Description: "#{the_movie.description}
+           puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
       elsif input == "list"
         list_movies
       else
@@ -36,15 +37,13 @@ class BestMoviesEver::CLI
       end
     end
   end
-end
     
     def goodbye
       puts "Thank you for visiting.  Check back with us when it is time to watch another movie!"
     end 
 
+  
 
 
-
-
-
+end
 
