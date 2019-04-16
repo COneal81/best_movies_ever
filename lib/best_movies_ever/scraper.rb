@@ -15,9 +15,11 @@
   
   def self.scrape_details(movie)
     doc = Nokogiri::HTML(open("https://www.rottentomatoes.com#{movie.url}"))
+    
     movie.description = doc.search("div#movieSynopsis").text.strip
-    # movie.genre = 
-    binding.pry
+    movie.rating = doc.css('div.meta-value').first.text.strip
+    movie.genre = doc.css('div.meta-value a').first.text.strip
+    # binding.pry
   end
  end  
 

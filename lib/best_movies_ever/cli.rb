@@ -36,7 +36,8 @@ class BestMoviesEver::CLI
            puts "*********More information On ***********"
            puts "      Title: #{the_movie.name}"
            puts "      URL:   #{the_movie.url}"
-           puts "      Genre: "#{the_movie.genre}
+           puts "      TV Rating: #{the_movie.rating}"
+           puts "      Genre: #{the_movie.genre}"
            puts "      Description: #{the_movie.description}"
            puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
       elsif input == "list"
@@ -51,7 +52,9 @@ class BestMoviesEver::CLI
       puts "Thank you for visiting.  Check back with us when it is time to watch another movie!"
     end 
 
-  
+  def sort_ratings
+    
+  end
 
 end
 
