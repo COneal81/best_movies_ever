@@ -3,7 +3,7 @@ class BestMoviesEver::CLI
   attr_accessor :movie_list
   
   def call 
-    puts "Welcome to Best Movies Ever CLI, home to the top rated movies!!"
+    puts "Welcome to Best Movies Ever CLI, home to the top rated movies!!".green
     BestMoviesEver::Scraper.scrape_rt
     movie_list
     list_movies
@@ -19,7 +19,7 @@ class BestMoviesEver::CLI
   def list_movies
     @movie_list.each.with_index(1) do |movie, index|
     puts ""
-    puts "#{index}. #{movie.name}"
+    puts "#{index}. #{movie.name}".colorize(:green)
     end
   end
      
@@ -35,13 +35,13 @@ class BestMoviesEver::CLI
           the_movie = @movie_list[input.to_i-1]
           BestMoviesEver::Scraper.scrape_details(the_movie)
            puts ""
-           puts "*********More information On ***********"
-           puts "      Title: #{the_movie.name}"
+           puts "* * * * * * * * * * * * * * ~~  More Information ~~ * * * * * * * * * * * * * *".bold.red
+           puts "      Title: #{the_movie.name}".italic.bold.green
           # puts "      URL:   #{the_movie.url}"
-           puts "      TV Rating: #{the_movie.rating}"
-           puts "      Genre: #{the_movie.genre}"
-           puts "      Description: #{the_movie.description}"
-           puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+           puts "      TV Rating: #{the_movie.rating}".bold.blue
+           puts "      Genre: #{the_movie.genre}".bold.yellow
+           puts "      Description: #{the_movie.description}".bold.cyan
+           puts "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ".bold.red
       elsif input == "list"
         list_movies
       else
