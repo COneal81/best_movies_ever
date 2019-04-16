@@ -10,19 +10,21 @@ class BestMoviesEver::CLI
     menu
     goodbye
   end
-
-    def movie_list
+    
+    
+  def movie_list
     @movie_list = BestMoviesEver::Movie.all
-    end
+  end
     
   def list_movies
     @movie_list.each.with_index(1) do |movie, index|
     puts ""
-    puts "#{index}. #{movie.name} ~ #{movie.url}"
+    puts "#{index}. #{movie.name}"
     end
   end
+     
         
-#allow the user to choose a section of movies, all movies, or end
+        #allow the user to choose a section of movies, all movies, or end
   def menu
     input = nil 
     while input != 'exit'
@@ -35,7 +37,7 @@ class BestMoviesEver::CLI
            puts ""
            puts "*********More information On ***********"
            puts "      Title: #{the_movie.name}"
-           puts "      URL:   #{the_movie.url}"
+          # puts "      URL:   #{the_movie.url}"
            puts "      TV Rating: #{the_movie.rating}"
            puts "      Genre: #{the_movie.genre}"
            puts "      Description: #{the_movie.description}"
@@ -48,13 +50,9 @@ class BestMoviesEver::CLI
     end
   end
     
-    def goodbye
-      puts "Thank you for visiting.  Check back with us when it is time to watch another movie!"
-    end 
-
-  def sort_ratings
-    
-  end
+  def goodbye
+    puts "Thank you for visiting.  Check back with us when it is time to watch another movie!"
+  end 
 
 end
 

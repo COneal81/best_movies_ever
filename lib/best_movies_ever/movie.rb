@@ -13,5 +13,6 @@ class BestMoviesEver::Movie
   def self.all
     @@all 
   end
+  
 end
 
