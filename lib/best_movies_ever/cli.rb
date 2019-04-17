@@ -34,8 +34,8 @@ class BestMoviesEver::CLI
           the_movie = @movie_list[input.to_i-1]
           BestMoviesEver::Scraper.scrape_details(the_movie)
            puts ""
-           puts "* * * * * * * * * * * * * * ~~  More Information ~~ * * * * * * * * * * * * * *".bold.red
-           puts "      Title:#{the_movie.name}".green
+           puts "* * * * * * * * * * * * * * ~~  Movie Information ~~ * * * * * * * * * * * * * *".bold.red
+           puts "      Title: #{the_movie.name}".green
           # puts "      URL:   #{the_movie.url}"
            puts "      TV Rating: #{the_movie.rating}".blue
            puts "      Genre: #{the_movie.genre}".magenta
