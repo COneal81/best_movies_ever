@@ -18,7 +18,7 @@ class BestMoviesEver::CLI
   def list_movies
     @movie_list.each.with_index(1) do |movie, index|
     puts ""
-    puts "#{index}. #{movie.name}".colorize(:green)
+    puts "#{index}. #{movie.name}".green
     end
   end
      
@@ -32,7 +32,7 @@ class BestMoviesEver::CLI
         
     if input.to_i > 0
           the_movie = @movie_list[input.to_i-1]
-          BestMoviesEver::Scraper.scrape_details(the_movie)
+          BestMoviesEver::Scraper.scrape_details(the_movie) unless !!the_movie.description 
            puts ""
            puts "* * * * * * * * * * * * * * ~~  Movie Information ~~ * * * * * * * * * * * * * *".bold.red
            puts "      Title: #{the_movie.name}".green
@@ -46,9 +46,7 @@ class BestMoviesEver::CLI
       elsif input == "exit"
         goodbye
       else
-        puts ""
-        puts "Invalid Entry.".underline.bold.red
-        puts ""
+        puts "\nInvalid Entry.\n".underline.bold.red
       end
     end
   end
