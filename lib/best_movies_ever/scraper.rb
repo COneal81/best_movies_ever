@@ -17,7 +17,6 @@ class BestMoviesEver::Scraper
     movie.rating = doc.css('div.meta-value').first.text.strip
     movie.genre = doc.css('div.meta-value a').first.text.strip
   end
-  
 end  
 
        

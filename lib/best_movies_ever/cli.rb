@@ -15,23 +15,23 @@ class BestMoviesEver::CLI
     @movie_list = BestMoviesEver::Movie.all
   end
     
+    
   def list_movies
     @movie_list.each.with_index(1) do |movie, index|
     puts "\n#{index}. #{movie.name}".green
     end
   end
      
-        
-        #allow the user to choose a section of movies, all movies, or end
-  def menu
+     
+  def menu #allow the user to choose a section of movies, all movies, or end
     input = nil 
     while input != 'exit'
       puts "Enter a number for the movie you would like to see more information on, type list to see all of the top 100 movies, or exit to leave.".yellow.bold
     input = gets.strip.downcase
         
-    if input.to_i > 0
-          the_movie = @movie_list[input.to_i-1]
-          BestMoviesEver::Movie.show_movie_details(the_movie)
+      if input.to_i > 0
+        the_movie = @movie_list[input.to_i-1]
+        BestMoviesEver::Movie.show_movie_detail(the_movie)
       elsif input == "list"
         list_movies
       elsif input == "exit"
@@ -47,6 +47,5 @@ class BestMoviesEver::CLI
     puts "Thank you for visiting!".bold.yellow 
     puts "Check back with us when it is time to watch another movie!".bold.yellow
   end 
-
 end
 
