@@ -31,14 +31,7 @@ class BestMoviesEver::CLI
         
     if input.to_i > 0
           the_movie = @movie_list[input.to_i-1]
-          BestMoviesEver::Scraper.scrape_details(the_movie) unless !!the_movie.description 
-           puts "\n* * * * * * * * * * * * * * ~~  Movie Information ~~ * * * * * * * * * * * * * *\n".bold.red
-           puts "  Title: #{the_movie.name}\n".light_green
-          # puts "      URL:   #{the_movie.url}"
-           puts "  TV Rating: #{the_movie.rating}\n".light_blue
-           puts "  Genre: #{the_movie.genre}\n".light_magenta
-           puts "  Description: #{the_movie.description}".light_cyan
-           puts "\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n".bold.red
+          BestMoviesEver::Movie.show_movie_details(the_movie)
       elsif input == "list"
         list_movies
       elsif input == "exit"
