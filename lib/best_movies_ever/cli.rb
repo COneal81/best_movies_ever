@@ -31,7 +31,7 @@ class BestMoviesEver::CLI
         
       if input.to_i > 0
         the_movie = @movie_list[input.to_i-1]
-        BestMoviesEver::Movie.show_movie_detail(the_movie)
+        BestMoviesEver::Movie.show_movie_details(the_movie)
       elsif input == "list"
         list_movies
       elsif input == "exit"
