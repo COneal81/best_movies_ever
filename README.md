@@ -1,8 +1,6 @@
 # BestMoviesEver
+Welcome to the Best Movies Ever Ruby gem!  This gem provides a CLI to view the top 100 movies of all time, as per the website Rotten Tomatoes.  Once a movie is selected, it will return the movie's TV rating, genre, and the description.  To experiment with the code, run `./bin/best-movies` for an interactive prompt. I hope you enjoy this gem and look forward to your feedback. ~ Kari
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/best_movies_ever`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -22,11 +20,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. To experiment with the code, run `./bin/best-movies` for an interactive prompt.
+2. Once the movie list had loaded, type a number for the movie you would like to see more information on.  
+3. To view the movie list again, type 'list'.
+4. When you are finished, type 'exit' to leave the gem.
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/best-movies` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
