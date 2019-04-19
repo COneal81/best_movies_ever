@@ -11,7 +11,7 @@ class BestMoviesEver::Scraper
   end
   
   def self.scrape_details(movie)
-     binding.pry
+    # binding.pry
     doc = Nokogiri::HTML(open("https://www.rottentomatoes.com#{movie.url}"))
     movie.description = doc.search("div#movieSynopsis").text.strip
     movie.rating = doc.css('div.meta-value').first.text.strip

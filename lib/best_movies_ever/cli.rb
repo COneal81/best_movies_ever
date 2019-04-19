@@ -17,8 +17,7 @@ class BestMoviesEver::CLI
     
   def list_movies
     @movie_list.each.with_index(1) do |movie, index|
-    puts ""
-    puts "#{index}. #{movie.name}".green
+    puts "\n#{index}. #{movie.name}".green
     end
   end
      
@@ -33,20 +32,19 @@ class BestMoviesEver::CLI
     if input.to_i > 0
           the_movie = @movie_list[input.to_i-1]
           BestMoviesEver::Scraper.scrape_details(the_movie) unless !!the_movie.description 
-           puts ""
-           puts "* * * * * * * * * * * * * * ~~  Movie Information ~~ * * * * * * * * * * * * * *".bold.red
-           puts "      Title: #{the_movie.name}".green
+           puts "\n* * * * * * * * * * * * * * ~~  Movie Information ~~ * * * * * * * * * * * * * *\n".bold.red
+           puts "  Title: #{the_movie.name}\n".light_green
           # puts "      URL:   #{the_movie.url}"
-           puts "      TV Rating: #{the_movie.rating}".blue
-           puts "      Genre: #{the_movie.genre}".magenta
-           puts "      Description: #{the_movie.description}".cyan
-           puts "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *".bold.red
+           puts "  TV Rating: #{the_movie.rating}\n".light_blue
+           puts "  Genre: #{the_movie.genre}\n".light_magenta
+           puts "  Description: #{the_movie.description}".light_cyan
+           puts "\n* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n".bold.red
       elsif input == "list"
         list_movies
       elsif input == "exit"
         goodbye
       else
-        puts "\nInvalid Entry.\n".underline.bold.red
+        puts "\nInvalid Entry.\n".red.bold
       end
     end
   end
