@@ -28,8 +28,7 @@ class BestMoviesEver::CLI
     while input != 'exit'
       puts "Enter a number for the movie you would like to see more information on, type list to see all of the top 100 movies, or exit to leave.".yellow.bold
     input = gets.strip.downcase
-        
-      if input.to_i > 0
+      if input.to_i > 0 && input.to_i <= 100
         the_movie = @movie_list[input.to_i-1]
         BestMoviesEver::Movie.show_movie_details(the_movie)
       elsif input == "list"
