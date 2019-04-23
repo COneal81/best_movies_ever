@@ -23,7 +23,7 @@ class BestMoviesEver::CLI
   end
      
      
-  def menu #allow the user to choose a section of movies, all movies, or end
+  def menu #allow the user to choose a movie, a list, or end
     input = nil 
     while input != 'exit'
       puts "Enter a number for the movie you would like to see more information on, type list to see all of the top 100 movies, or exit to leave.".yellow.bold
