@@ -1,12 +1,15 @@
 class BestMoviesEver::Scraper 
    
   def self.scrape_rt
+        puts "SCRAPING FOR all movies"
     doc = Nokogiri::HTML(open("https://www.rottentomatoes.com/top/bestofrt/"))
       movie_list = doc.css('#main_container a.unstyled.articleLink')
       movie_list[0...100].each do |movie_listings| 
-        name = movie_listings.text.strip 
-        url = movie_listings.attr('href')
-    BestMoviesEver::Movie.new(name, url)
+        attribute_hash = {
+            name: movie_listings.text.strip, 
+            url: movie_listings.attr('href')}
+    BestMoviesEver::Movie.new(attribute_hash)
+    #BestMoviesEver::Movie.new(name, url)
     end
   end
   

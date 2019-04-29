@@ -3,12 +3,19 @@ class BestMoviesEver::Movie
   attr_accessor :name, :url, :description, :genre, :rating
   
   @@all = []
-
-  def initialize(name, url)
-    @name = name 
-    @url = url
+  
+  def initialize(attr_hash)
+    # binding.pry
+    @name = attr_hash[:name] 
+    @url = attr_hash[:url]
     @@all << self  #saves and remembers the object
   end
+ 
+  # def initialize(name, url)
+  #   @name = name 
+  #   @url = url
+  #   @@all << self  #saves and remembers the object
+  # end
   
   def self.show_movie_details(the_movie)
     BestMoviesEver::Scraper.scrape_details(the_movie) unless !!the_movie.description

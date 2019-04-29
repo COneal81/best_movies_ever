@@ -1,6 +1,6 @@
 class BestMoviesEver::CLI 
   
-  attr_accessor :movie_list
+  # attr_accessor :movie_list
   
   def call 
     puts "Welcome to Best Movies Ever CLI, home to the top 100 movies!!".yellow.bold
@@ -18,14 +18,14 @@ class BestMoviesEver::CLI
     
   def list_movies
     @movie_list.each.with_index(1) do |movie, index|
-    puts "\n#{index}. #{movie.name}".green
+      puts "\n#{index}. #{movie.name}".green
     end
   end
      
      
   def menu #allow the user to choose a movie, a list, or end
     input = nil 
-    while input != 'exit'
+    while input != 'exit' #while contrant will continue executing the block as long as the conditions are true
       puts "Enter a number for the movie you would like to see more information on, type list to see all of the top 100 movies, or exit to leave.".yellow.bold
     input = gets.strip.downcase
       if input.to_i > 0 && input.to_i <= 100
@@ -41,6 +41,8 @@ class BestMoviesEver::CLI
     end
   end
     
+    
+  
     
   def goodbye
     puts "Thank you for visiting!".bold.yellow 
